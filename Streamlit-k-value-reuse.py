@@ -5,7 +5,7 @@ from ecdsa import SECP256k1, ellipticcurve
 import streamlit as st
 import time
 
-#@st.cache_data()
+@st.cache_data()
 def generate_keys():
     """Generates a private key."""
     private_key = secrets.randbits(256)
@@ -14,7 +14,7 @@ def generate_keys():
     generator_point = ellipticcurve.Point(SECP256k1.curve, SECP256k1.generator.x(), SECP256k1.generator.y(), SECP256k1.order)
     return sk, generator_point, sk_int
 
-#@st.cache_data()
+@st.cache_data()
 def generate_k_value():
     return secrets.randbelow(SECP256k1.order)
 
